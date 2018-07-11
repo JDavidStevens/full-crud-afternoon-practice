@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import "./App.css";
-import axios from "axios";
+import React, { Component } from 'react';
+import './App.css';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       list: [],
-      input: "",
-      color: ""
+      input: '',
+      color: ''
     };
   }
 
   componentDidMount() {
-    axios.get("/api/dog").then(results => {
+    axios.get('/api/dog').then(results => {
       console.log(results.data);
       this.setState({ list: [...results.data] });
     });
@@ -25,7 +25,7 @@ class App extends Component {
 
   handleClick() {
     axios
-      .post("/cat", { input: this.state.input, color: this.state.color })
+      .post('/cat', { input: this.state.input, color: this.state.color })
       .then(results => {
         this.setState({ list: results.data });
       });
